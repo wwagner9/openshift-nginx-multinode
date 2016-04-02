@@ -1,6 +1,6 @@
 ---
 Name: nginx-node-pm2-issuetracker
-Cartridge-Short-Name: NGINX-NODE-PM2-ISSUETRACKER
+Cartridge-Short-Name: CUSTOMAPP
 Display-Name: NGINX/ Node / pm2 / issuetracker Cartridge 0.1
 Description: NGINX/ Node / pm2 / issuetracker
 Version: '0.1'
@@ -43,24 +43,6 @@ Endpoints:
     Backend: ''
     Options:
       health: true
-- Private-IP-Name: EXAMPLE_IP1
-  Private-Port-Name: EXAMPLE_PORT2
-  Private-Port: 8081
-  Public-Port-Name: EXAMPLE_PUBLIC_PORT2
-- Private-IP-Name: EXAMPLE_IP1
-  Private-Port-Name: EXAMPLE_PORT3
-  Private-Port: 8082
-  Public-Port-Name: EXAMPLE_PUBLIC_PORT3
-- Private-IP-Name: EXAMPLE_IP2
-  Private-Port-Name: EXAMPLE_PORT4
-  Private-Port: 9090
-- Private-IP-Name: SSL_IP
-  Private-Port-Name: SSL_PORT
-  Private-Port: 8443
-  Public-Port-Name: SSL_PROXY_PORT
-  Protocols: [https]
-  Options:
-    ssl_to_gear: true
 Scaling:
   Min: 1
   Max: -1
