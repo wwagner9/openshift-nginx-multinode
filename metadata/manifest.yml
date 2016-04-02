@@ -8,7 +8,7 @@ License: "None"
 Vendor: Wolfgang Wagner
 Cartridge-Version: 0.0.1
 Cartridge-Vendor: wolfgangwagner
-Source-Url: https://github.com/wwagner9/openshift-nginx-node-pm2-issuertracker
+Source-Url: https://github.com/wwagner9/openshift-nginx-node-pm2-issuertracker.git
 Categories:
 - service
 - web_framework
