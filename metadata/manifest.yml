@@ -1,6 +1,6 @@
 ---
 Name: nginx-node-pm2-issuetracker
-Cartridge-Short-Name: CUSTOMAPP
+Cartridge-Short-Name: NODEJS
 Display-Name: NGINX/ Node / pm2 / issuetracker Cartridge 0.1
 Description: NGINX/ Node / pm2 / issuetracker
 Version: '0.1'
