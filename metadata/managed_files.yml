@@ -1,7 +1,6 @@
 ---
 locked_files:
-- .env/
-- .env/*
-- ~/app-root/data/
+- env/
+- env/*
 processed_templates:
 - '**/*.erb'
