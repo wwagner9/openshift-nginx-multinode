@@ -20,12 +20,15 @@ function build(){
 }
 
 function start(){
+    echo "Starting"
 }
 
 function stop(){
+    echo "stopping"
 }
 
 function restart(){
+    echo "restarting"
 }
 
 case ${1} in
