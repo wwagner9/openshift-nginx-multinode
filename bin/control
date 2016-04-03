@@ -2,8 +2,6 @@
 
 source ${OPENSHIFT_HOMEDIR}/nginx-node-pm2-issuetracker/bin/util
 
-function pre_build(){
-}
 
 function build(){
     install_node_app
@@ -23,7 +21,7 @@ function restart(){
 
 case ${1} in
   #pre-repo-archive) pre-repo-archive ;;
-    pre-build)        pre_build        ;;
+    #pre-build)        pre_build        ;;
     build)            build            ;;
     start)            start            ;;
     stop)             stop             ;;
