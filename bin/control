@@ -2,7 +2,8 @@
 
 source ${OPENSHIFT_HOMEDIR}/nginx-node-pm2-issuetracker/bin/util
 
-function pre_build(){}
+function pre_build(){
+}
 
 function build(){
     install_node_app
