@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./util
+source ${OPENSHIFT_HOMEDIR}/nginx-node-pm2-issuetracker/bin/util
 
 function pre_build(){}
 
