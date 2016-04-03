@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source util
+source ./util
 
 install_node_app

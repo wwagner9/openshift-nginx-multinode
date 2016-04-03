@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source util
+source ./util
 
 function pre_build(){}
 
