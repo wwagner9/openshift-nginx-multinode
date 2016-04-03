@@ -19,14 +19,23 @@ function build(){
     npm install --production
 }
 
+function start(){
+}
+
+function stop(){
+}
+
+function restart(){
+}
+
 case ${1} in
-  pre-repo-archive) pre-repo-archive ;;
+  #pre-repo-archive) pre-repo-archive ;;
   build)            build            ;;
   start)            start            ;;
   stop)             stop             ;;
   restart)          restart          ;;
-  status)           status           ;;
-  tidy)             tidy             ;;
+  #status)           status           ;;
+  #tidy)             tidy             ;;
   *)                exit 0
 esac
 
