@@ -1,4 +1,3 @@
----
 Name: nginx-node-pm2-issuetracker
 Cartridge-Short-Name: NGINJS
 Display-Name: NGINX/ Node / pm2 / issuetracker Cartridge 0.1
@@ -18,10 +17,6 @@ Provides:
 - node
 - pm2
 - issue tracker
-Cart-Data:
-- Key: OPENSHIFT_NGINX_NODE_PM2_ISSUETRACKER
-  Type: environment
-  Description: An example environment variable using ERB processing
 Publishes:
 Subscribes:
   set-env:
