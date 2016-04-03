@@ -5,12 +5,12 @@ function pre_build(){
     cache_dir=${OPENSHIFT_DEPENDENCIES_DIR}/
     env_dir =${OPENSHIFT_HOMEDIR}
 
-    echo "production"                              > ${env_dir}/NODE_ENV
-    echo ${OPENSHIFT_DATA_DIR}.nodejs/.npm         > ${env_dir}/npm_config_cache
-    echo ${OPENSHIFT_DATA_DIR}.nodejs/.npmrc       > ${env_dir}/npm_config_userconfig
-    echo ${OPENSHIFT_DATA_DIR}.nodejs/.npmignore   > ${env_dir}/npm_config_userignorefile
-    echo ${OPENSHIFT_DATA_DIR}.nodejs/.npm-init.js > ${env_dir}/npm_config_init_module
-    echo ${TMP}                                    > ${env_dir}/npm_config_tmp
+    #echo "production"                              > ${env_dir}/NODE_ENV
+    #echo ${OPENSHIFT_DATA_DIR}.nodejs/.npm         > ${env_dir}/npm_config_cache
+    #echo ${OPENSHIFT_DATA_DIR}.nodejs/.npmrc       > ${env_dir}/npm_config_userconfig
+    #echo ${OPENSHIFT_DATA_DIR}.nodejs/.npmignore   > ${env_dir}/npm_config_userignorefile
+    #echo ${OPENSHIFT_DATA_DIR}.nodejs/.npm-init.js > ${env_dir}/npm_config_init_module
+    #echo ${TMP}                                    > ${env_dir}/npm_config_tmp
 }
 
 function build(){
