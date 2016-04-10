@@ -1,5 +1,9 @@
 #!/bin/bash
 
+function create_npm_dir(){
+    mkdir ${OPENSHIFT_HOMEDIR}/.npm
+}
+
 function install_node_app(){
     cd ${OPENSHIFT_REPO_DIR}
     npm install --production
