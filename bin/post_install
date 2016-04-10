@@ -2,4 +2,4 @@
 
 source ${OPENSHIFT_HOMEDIR}/nginx-node-pm2-issuetracker/bin/util
 
-create_npm_dir
+install_node_app
