@@ -1,11 +1,11 @@
 #user  nobody;
 worker_processes  1;
 
-error_log  <%= ENV['OPENSHIFT_DATA_DIR'] %>/logs/error.log;
+error_log  <%= ENV['OPENSHIFT_LOG_DIR'] %>error.log;
 #error_log  logs/error.log  notice;
 #error_log  logs/error.log  info;
 
-pid        l<%= ENV['OPENSHIFT_DATA_DIR'] %>/logs/nginx.pid;
+pid        l<%= ENV['OPENSHIFT_LOG_DIR'] %>nginx.pid;
 
 
 events {
