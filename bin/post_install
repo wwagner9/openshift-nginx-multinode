@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source ${OPENSHIFT_HOMEDIR}/nginx-node-pm2-issuetracker/bin/util
+source "$OPENSHIFT_NGINJS_DIR/bin/util"
 
 install_node_app

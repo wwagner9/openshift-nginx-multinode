@@ -3,4 +3,4 @@
 cd $OPENSHIFT_NGINX_DIR/conf/
 rm nginx.conf
 
-ln -s $OPENSHIFT_NGINJS_DIR/conf/data/nginx.conf 
+ln -s $OPENSHIFT_NGINJS_DIR/data/conf/nginx.conf 
