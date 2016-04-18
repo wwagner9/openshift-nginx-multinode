@@ -5,7 +5,7 @@ error_log  <%= ENV['OPENSHIFT_LOG_DIR'] %>error.log;
 #error_log  logs/error.log  notice;
 #error_log  logs/error.log  info;
 
-pid        l<%= ENV['OPENSHIFT_LOG_DIR'] %>nginx.pid;
+pid        <%= ENV['OPENSHIFT_LOG_DIR'] %>nginx.pid;
 
 
 events {
