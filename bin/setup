@@ -28,7 +28,7 @@ function install_nginx(){
 
     cd nginx-1.9.9/
 
-    ./configure --prefix="$OPENSHIFT_DATA_DIR" --with-pcre="$OPENSHIFT_TMP_DIR/$PCRE_VERSION"
+    ./configure --prefix="$OPENSHIFT_NGINX_DIR" --with-pcre="$OPENSHIFT_TMP_DIR/$PCRE_VERSION"
 
     make install
 }
