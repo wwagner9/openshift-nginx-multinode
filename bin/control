@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ${OPENSHIFT_HOMEDIR}/nginx-node-pm2-issuetracker/bin/util
+source "$OPENSHIFT_HOMEDIR"/nginx-node-pm2-issuetracker/bin/util
 
 
 function build(){
@@ -9,10 +9,12 @@ function build(){
 
 function start(){
     echo "Starting"
+    nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" &
 }
 
 function stop(){
     echo "stopping"
+    "$OPENSHIFT_NGINX_DIR/sbin/nginx -c stop"
 }
 
 function restart(){
