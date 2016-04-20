@@ -10,7 +10,7 @@ function build(){
 function start(){
     echo "Starting"
     nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" &
-    #nohup supervisor "$OPENSHIFT_REPO_DIR"/server.js &
+    nohup supervisor "$OPENSHIFT_REPO_DIR"/server.js &
 }
 
 function stop(){
