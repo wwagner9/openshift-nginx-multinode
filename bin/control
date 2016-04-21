@@ -2,6 +2,9 @@
 
 source "$OPENSHIFT_HOMEDIR"/nginx-node-pm2-issuetracker/bin/util
 
+function nohup_starter(){
+    nohup supervisor "$OPENSHIFT_REPO_DIR"/$1 > "$OPENSHIFT_LOG_DIR"/nodejs.log 2>&1 &
+}
 
 function build(){
     install_node_app
@@ -9,8 +12,8 @@ function build(){
 
 function start(){
     echo "Starting"
-    nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" &
-    nohup supervisor "$OPENSHIFT_REPO_DIR"/server.js &
+    #nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" &
+    cat "$OPENSHIFT_REPO_DIR"/server_registry | xargs -L 1 nohup_starter
 }
 
 function stop(){
