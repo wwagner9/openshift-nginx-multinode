@@ -12,7 +12,7 @@ function build(){
 
 function start(){
     echo "Starting"
-    #nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" &
+    nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" &
     export -f nohup_starter
     cat "$OPENSHIFT_REPO_DIR"/server_registry | xargs -L 1 -I {} bash -c 'nohup_starter "$@"' _ {}
 }
