@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 
 var ip = process.env.OPENSHIFT_NGINJS_IP;
-var port = process.env.OPENSHIFT_NGINJS_PORT;
+var port = 16000;//process.env.OPENSHIFT_NGINJS_PORT;
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
