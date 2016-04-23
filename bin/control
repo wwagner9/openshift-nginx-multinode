@@ -17,16 +17,16 @@ function start(){
     
     i=0
     server_registry="$OPENSHIFT_REPO_DIR"/server_registry
-#    while IFS= read -r line
-#    do
-#	nohup_starter "$line" "$i"
-#	((i++))
-#    done < "$server_registry"
+    while IFS= read -r line
+    do
+	nohup_starter "$line" "$i"
+	((i++))
+    done < "$server_registry"
 }
 
 function stop(){
     echo "stopping"
-    "$OPENSHIFT_NGINX_DIR/sbin/nginx -c stop"
+    "$OPENSHIFT_NGINX_DIR/sbin/nginx -s stop"
     
 }
 
