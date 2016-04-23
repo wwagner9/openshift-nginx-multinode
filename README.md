@@ -1,1 +1,1 @@
-# openshift-nginx-node-pm2-issuertracker
+# openshift-nginx-multinode

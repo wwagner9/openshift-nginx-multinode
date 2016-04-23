@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$OPENSHIFT_HOMEDIR/nginx-node-pm2-issuetracker/bin/util"
+source "$OPENSHIFT_HOMEDIR/openshift-nginx-multinode/bin/util"
 
 function nohup_starter(){
     nohup supervisor "$OPENSHIFT_REPO_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs.log" 2>&1 &

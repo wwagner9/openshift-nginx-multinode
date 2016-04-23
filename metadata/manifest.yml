@@ -1,13 +1,13 @@
-Name: nginx-node-pm2-issuetracker
+Name: openshift-nginx-multinode
 Cartridge-Short-Name: NGINJS
-Display-Name: NGINX/ Node / pm2 / issuetracker Cartridge 0.1
-Description: NGINX/ Node / pm2 / issuetracker
+Display-Name: NGINX/ multi Node Cartridge 0.1
+Description: NGINX/ multi Node
 Version: '0.1'
 License: "None"
 Vendor: Wolfgang Wagner
 Cartridge-Version: 0.0.1
 Cartridge-Vendor: wolfgangwagner
-Source-Url: https://github.com/wwagner9/openshift-nginx-node-pm2-issuertracker.git
+Source-Url: https://github.com/wwagner9/openshift-nginx-multinode.git
 Categories:
 - service
 - web_framework
@@ -15,8 +15,6 @@ Provides:
 - nginx-1.9
 - nginx
 - node
-- pm2
-- issue tracker
 Publishes:
 Subscribes:
   set-env:
