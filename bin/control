@@ -20,7 +20,7 @@ function start(){
     while IFS= read -r line
     do
 	nohup_starter "$line" "$i"
-	((i++))
+	#((i++))
     done < "$server_registry"
 }
 
