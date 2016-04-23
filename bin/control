@@ -26,10 +26,11 @@ function start(){
 
 function stop(){
     echo "stopping"
-    "$OPENSHIFT_NGINX_DIR/sbin/nginx -s stop"
+    "$OPENSHIFT_NGINX_DIR/sbin/nginx" -s stop
     for server_pid in "$OPENSHIFT_DATA_DIR"/server*.pid
     do
 	head -n 1 "$server_pid" | xargs kill
+	rm "$server_pid"
     done
 }
 
