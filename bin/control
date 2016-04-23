@@ -14,15 +14,14 @@ function build(){
 function start(){
     echo "Starting"
     nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" > "$OPENSHIFT_LOG_DIR"/nohup_nginx.out 2>&1 &
-    export -f nohup_starter
     
     i=0
     server_registry="$OPENSHIFT_REPO_DIR"/server_registry
-    while IFS= read -r line
-    do
-	nohup_starter "$line" "$i"
-	((i++))
-    done < "$server_registry"
+#    while IFS= read -r line
+#    do
+#	nohup_starter "$line" "$i"
+#	((i++))
+#    done < "$server_registry"
 }
 
 function stop(){
