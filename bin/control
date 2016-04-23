@@ -20,7 +20,7 @@ function start(){
     server_registry="$OPENSHIFT_REPO_DIR"/server_registry
     while IFS= read -r line
     do
-	nohup_starter "$@" i
+	nohup_starter "$line" "$i"
 	((i++))
     done < "$server_registry"
 }
