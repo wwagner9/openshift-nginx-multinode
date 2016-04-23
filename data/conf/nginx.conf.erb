@@ -39,10 +39,7 @@ http {
 
         #access_log  logs/host.access.log  main;
 
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
+	include      <%= ENV['$OPENSHIFT_REPO_DIR'] %>/proxy_config
 
         #error_page  404              /404.html;
 
