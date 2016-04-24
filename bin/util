@@ -6,5 +6,5 @@ function create_npm_dir(){
 
 function install_node_app(){
     cd ${OPENSHIFT_REPO_DIR}
-    "$OPENSHIFT_NPM_BIN" install --production
+    # "$OPENSHIFT_NPM_BIN" install --production
 }
