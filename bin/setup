@@ -53,8 +53,6 @@ function install_node(){
 
     rm "$NODE_GZ_FILE"
     rm -rf "$NODE_FILE"
-
-    cd "$NODE_FILE"
 }
 
 install_nginx
