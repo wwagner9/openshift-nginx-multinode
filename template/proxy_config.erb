@@ -1,5 +1,5 @@
 location / {
-	 proxy_pass http://<%= ENV['OPENSHIFT_NGINJS_IP'] %>:16000;
+	 proxy_pass <%= ENV['OPENSHIFT_NGINJS_IP'] %>:16000;
 	 # root   html;
 	 # index  index.html index.htm;
 }
