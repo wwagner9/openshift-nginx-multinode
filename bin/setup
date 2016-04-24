@@ -4,6 +4,14 @@ PCRE_VERSION=pcre-8.37
 PCRE_ARC="$PCRE_VERSION.tar.bz2"
 PCRE_URL="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/$PCRE_ARC"
 
+NODE_VERSION=v5.9.1
+NODE_BASE="node-$NODE_VERSION"
+NODE_DISTRO=-linux-x64
+NODE_FILE="$NODE_BASE$NODE_DISTRO"
+NODE_GZ_FILE="$NODE_FILE.tar.gz"
+NODE_URL="http://nodejs.org/dist/$NODE_VERSION/$NODE_GZ_FILE"
+
+
 function install_pcre(){
     cd "$OPENSHIFT_TMP_DIR"
 
@@ -33,4 +41,22 @@ function install_nginx(){
     make install
 }
 
+function install_node(){
+    mkdir -p "$OPENSHIFT_NODE_LOCATION"
+
+    cd "$OPENSHIFT_NODE_LOCATION"
+
+    wget "$NODE_URL"
+    tar zxf  "$NODE_GZ_FILE"
+
+    mv "$NODE_FILE"/* .
+
+    rm "$NODE_GZ_FILE"
+    rm -rf "$NODE_FILE"
+
+    cd "$NODE_FILE"
+}
+
 install_nginx
+
+install_node

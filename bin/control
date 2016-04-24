@@ -3,7 +3,7 @@
 source "$OPENSHIFT_HOMEDIR/openshift-nginx-multinode/bin/util"
 
 function nohup_starter(){
-    nohup supervisor "$OPENSHIFT_REPO_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs.log" 2>&1 &
+    nohup "$OPENSHIFT_NODE_BIN" "$OPENSHIFT_REPO_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs.log" 2>&1 &
     echo "$!" > "$OPENSHIFT_DATA_DIR/server$2.pid"
 }
 
@@ -19,6 +19,7 @@ function start(){
     server_registry="$OPENSHIFT_REPO_DIR/server_registry"
     while IFS= read -r server
     do
+
 	nohup_starter "$server" "$i"
 	i=$((i+1))
     done < "$server_registry"
@@ -27,10 +28,11 @@ function start(){
 function stop(){
     echo "stopping"
     "$OPENSHIFT_NGINX_DIR/sbin/nginx" -s stop
-    for server_pid in "$OPENSHIFT_DATA_DIR"/server*.pid
+
+    for server_pid in $(find "$OPENSHIFT_DATA_DIR" -name "server*.pid" -type f)
     do
-	head -n 1 "$server_pid" | xargs kill
-	rm "$server_pid"
+        head -n 1 "$server_pid" | xargs kill
+        rm "$server_pid"
     done
 }
 
