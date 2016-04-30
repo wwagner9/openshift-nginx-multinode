@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-"$OPENSHIFT_NGINJS_DIR/bin/control stop"
+"$OPENSHIFT_NGINJS_DIRbin/control" "stop"
 
 source "$OPENSHIFT_NGINJS_DIR/bin/util"
 
