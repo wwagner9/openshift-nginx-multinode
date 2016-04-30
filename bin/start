@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source "$OPENSHIFT_NGINJS_DIR/bin/util"
+
+install_node_app

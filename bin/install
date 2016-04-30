@@ -5,6 +5,3 @@ rm nginx.conf
 
 ln -s $OPENSHIFT_NGINJS_DIR/data/conf/nginx.conf 
 
-source "$OPENSHIFT_NGINJS_DIR/bin/util"
-
-install_node_app
