@@ -3,12 +3,14 @@
 #
 # e.g. force https
 #
-#if ( $scheme = "http" ) {
-#   rewrite ^ https://$server_name$request_uri? permanent;
-#}
+
+## Forces modern clients to use secure connections only for at
+# least 8 days after the header was last returned. See:
+# https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
+add_header Strict-Transport-Security "max-age=691200; includeSubDomains";
 
 location / {
-	 proxy_pass http://<%= ENV['OPENSHIFT_NGINJS_IP'] %>:16000;
+	 proxy_pass $scheme://<%= ENV['OPENSHIFT_NGINJS_IP'] %>:16000;
 	 # root   html;
 	 # index  index.html index.htm;
 }
