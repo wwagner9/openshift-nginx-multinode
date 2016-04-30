@@ -33,7 +33,7 @@ http {
 
     server {
         listen       <%= ENV['OPENSHIFT_NGINJS_IP'] %>:<%= ENV['OPENSHIFT_NGINJS_PORT'] %>;
-        server_name  localhost;
+        server_name  <%= ENV['OPENSHIFT_APP_DNS'] %>;
 
         #charset koi8-r;
 

@@ -2,7 +2,10 @@
 # additional server configuration parameters here
 #
 # e.g. force https
-# rewrite     ^   https://$server_name$request_uri? permanent;
+#
+#if ( $scheme = "http" ) {
+#   rewrite ^ https://$server_name$request_uri? permanent;
+#}
 
 location / {
 	 proxy_pass http://<%= ENV['OPENSHIFT_NGINJS_IP'] %>:16000;
