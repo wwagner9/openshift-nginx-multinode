@@ -7,10 +7,17 @@
 ## Forces modern clients to use secure connections only for at
 # least 8 days after the header was last returned. See:
 # https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
+
+if ( $http_x_forwarded_proto != "https" ) {
+    rewrite     ^   https://$server_name$request_uri? permanent;
+}
+
 add_header Strict-Transport-Security "max-age=691200; includeSubDomains";
 
 location / {
 	 proxy_pass $scheme://<%= ENV['OPENSHIFT_NGINJS_IP'] %>:16000;
+	 proxy_set_header		Host $host;
+	 proxy_pass_request_headers 	on;	
 	 # root   html;
 	 # index  index.html index.htm;
 }
