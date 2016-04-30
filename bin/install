@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 cd $OPENSHIFT_NGINX_DIR/conf/
 rm nginx.conf

@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 "$OPENSHIFT_NGINJS_DIR/bin/control stop"
 
