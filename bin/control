@@ -3,7 +3,7 @@
 source "$OPENSHIFT_HOMEDIR/openshift-nginx-multinode/bin/util"
 
 function nohup_starter(){
-    nohup "$OPENSHIFT_NODE_BIN" "$OPENSHIFT_REPO_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs.log" 2>&1 &
+    nohup "$OPENSHIFT_NODE_BIN" "$OPENSHIFT_REPO_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs$2.log" 2>&1 &
     echo "$!" > "$OPENSHIFT_DATA_DIR/server$2.pid"
 }
 
