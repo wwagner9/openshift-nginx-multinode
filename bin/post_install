@@ -1,9 +1,6 @@
 #!/bin/bash
 
-"$OPENSHIFT_NGINJS_DIR/bin/control stop"
-
 source "$OPENSHIFT_NGINJS_DIR/bin/util"
 
 install_node_app
 
-"$OPENSHIFT_NGINJS_DIR/bin/control start"
