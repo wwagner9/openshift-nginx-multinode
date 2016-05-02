@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exec >> "$OPENSHIFT_NGINJS_DIR/control_log" 2>&1
+
 source "$OPENSHIFT_HOMEDIR/openshift-nginx-multinode/bin/util"
 
 function nohup_starter(){
