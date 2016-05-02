@@ -49,7 +49,6 @@ function install_nginx(){
 }
 
 function install_node(){
-    mkdir -p "$OPENSHIFT_NODE_LOCATION"
 
     cd "$OPENSHIFT_NODE_LOCATION"
 
