@@ -2,5 +2,5 @@
 
 source "$OPENSHIFT_NGINJS_DIR/bin/util"
 
-install_node_app
+install_node_app > "$OPENSHIFT_NGINJS_DIR/install_log" 2>&1
 
