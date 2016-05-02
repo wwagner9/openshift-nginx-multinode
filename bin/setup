@@ -50,6 +50,8 @@ function install_nginx(){
 
 function install_node(){
 
+    mkdir "$OPENSHIFT_NODE_LOCATION"
+
     cd "$OPENSHIFT_NODE_LOCATION"
 
     wget "$NODE_URL"
@@ -61,6 +63,11 @@ function install_node(){
     rm -rf "$NODE_FILE"
 }
 
-install_nginx
 
-install_node
+function setupAll(){
+    install_nginx
+
+    install_node
+}
+
+setupAll

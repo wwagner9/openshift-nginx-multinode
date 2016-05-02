@@ -1,7 +1,14 @@
 #!/bin/bash -e
 
-cd $OPENSHIFT_NGINX_DIR/conf/
-rm nginx.conf
+function make_config(){
+    cd "$OPENSHIFT_NGINX_DIR/conf/"
+    rm nginx.conf
 
-ln -s $OPENSHIFT_NGINJS_DIR/data/conf/nginx.conf 
+    ln -s "$OPENSHIFT_NGINJS_DIR/data/conf/nginx.conf"
+}
 
+function installAll(){
+    make_confing
+} 
+
+installAll
