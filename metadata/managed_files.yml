@@ -3,3 +3,5 @@ locked_files:
 - env/*
 processed_templates:
 - '**/*.erb'
+setup_rewritten:
+- node
