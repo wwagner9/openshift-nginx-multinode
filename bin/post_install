@@ -2,11 +2,9 @@
 
 exec > "$OPENSHIFT_NGINJS_DIR/post_install_log" 2>&1
 
-"$OPENSHIFT_NGINJS_DIR/bin/control stop"
+ls -lart "$OPENSHIFT_NGINJS_DIR/bin/control"
 
 source "$OPENSHIFT_NGINJS_DIR/bin/util"
 
 install_node_app
-
-"$OPENSHIFT_NGINJS_DIR/bin/control stop"
 
