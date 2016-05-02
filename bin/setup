@@ -24,7 +24,7 @@ function install_pcre(){
 
 function install_nginx(){
 
-    mkdir "$OPENSHIFT_NGINX_DIR"
+    mkdir -p "$OPENSHIFT_NGINX_DIR"
 
     install_pcre
 
@@ -52,7 +52,7 @@ function install_nginx(){
 
 function install_node(){
 
-    mkdir "$OPENSHIFT_NODE_LOCATION"
+    mkdir -p "$OPENSHIFT_NODE_LOCATION"
 
     cd "$OPENSHIFT_NODE_LOCATION"
 
