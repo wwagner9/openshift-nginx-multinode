@@ -8,7 +8,7 @@ function make_config(){
 }
 
 function installAll(){
-    make_confing
+    make_config
 } 
 
 installAll
