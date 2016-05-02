@@ -2,7 +2,7 @@
 
 exec > "$OPENSHIFT_NGINJS_DIR/post_install_log" 2>&1
 
-ls -lart "$OPENSHIFT_NGINJS_DIR/bin/control"
+${OPENSHIFT_NGINJS_DIR}/bin/control stop
 
 source "$OPENSHIFT_NGINJS_DIR/bin/util"
 
