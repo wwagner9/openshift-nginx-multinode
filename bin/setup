@@ -24,6 +24,8 @@ function install_pcre(){
 
 function install_nginx(){
 
+    mkdir "$OPENSHIFT_NGINX_DIR"
+
     install_pcre
 
     cd "$OPENSHIFT_TMP_DIR"
