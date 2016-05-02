@@ -65,11 +65,21 @@ function install_node(){
     rm -rf "$NODE_FILE"
 }
 
+function install_supervisor(){
+    mkdir -p "$OPENSHIFT_SUPERVISOR_LOCATION"
+
+    cd "$OPENSHIFT_SUPERVISOR_LOCATION"
+
+    ${OPENSHIFT_NPM_BIN} install --prefix . "supervisor"
+}
+
 
 function setupAll(){
     install_nginx
 
     install_node
+
+    install_supervisor
 }
 
 setupAll
