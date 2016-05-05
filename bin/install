@@ -1,5 +1,11 @@
 #!/bin/bash -e
 
+exec > "$OPENSHIFT_NGINJS_DIR/install_log" 2>&1
+
+source "$OPENSHIFT_HOMEDIR/openshift-nginx-multinode/bin/util"
+
+log "Starting install"
+
 function make_config(){
     cd "$OPENSHIFT_NGINX_DIR/conf/"
     rm nginx.conf
