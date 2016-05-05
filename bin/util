@@ -1,6 +1,12 @@
 #!/bin/bash
 
+function log(){
+    echo "$(date '+%Y-%m-%d %H:%M:%S') $1"
+}
+
 function install_node_app(){
+    log "installing application"
+
     cd ${OPENSHIFT_REPO_DIR}
     "$OPENSHIFT_NPM_BIN" install --production
 }

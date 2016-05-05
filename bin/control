@@ -5,7 +5,11 @@ exec >> "$OPENSHIFT_NGINJS_DIR/control_log" 2>&1
 source "$OPENSHIFT_HOMEDIR/openshift-nginx-multinode/bin/util"
 
 function nohup_starter(){
+
+    log "Starting $1 with id $2"
+
     nohup "$OPENSHIFT_NODE_BIN" "$OPENSHIFT_SUPERVISOR_BIN" -w "$OPENSHIFT_REPO_DIR" -x "$OPENSHIFT_NODE_BIN" -pid "$OPENSHIFT_DATA_DIR/server$2.pid" "$OPENSHIFT_REPO_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs$2.log" 2>&1 &
+
 }
 
 function build(){
@@ -13,7 +17,8 @@ function build(){
 }
 
 function start(){
-    echo "Starting"
+    log "Starting"
+
     nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" > "$OPENSHIFT_LOG_DIR/nohup_nginx.out" 2>&1 &
     
     i=0
@@ -27,7 +32,8 @@ function start(){
 }
 
 function stop(){
-    echo "stopping"
+    log "stopping"
+    
     "$OPENSHIFT_NGINX_DIR/sbin/nginx" -s stop
 
     for server_pid in $(find "$OPENSHIFT_DATA_DIR" -name "server*.pid" -type f)
@@ -38,7 +44,7 @@ function stop(){
 }
 
 function restart(){
-    echo "restarting"
+    log "restarting"
 }
 
 case ${1} in
