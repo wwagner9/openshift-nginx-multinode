@@ -36,11 +36,12 @@ function stop(){
     
     "$OPENSHIFT_NGINX_DIR/sbin/nginx" -s stop
 
-    for server_pid in $(find "$OPENSHIFT_DATA_DIR" -name "server*.pid" -type f)
+    for server_pid_file in $(find "$OPENSHIFT_DATA_DIR" -name "server*.pid" -type f)
     do
-	log "Killing $server_pid $(head -n 1 '$server_pid')"
-        head -n 1 "$server_pid" | xargs kill
-        rm "$server_pid"
+	server_pid=$(head -n 1 "$server_pid_file")
+	log "Killing $server_pid_file $server_pid "
+        kill "$server_pid"
+	# looks like supervisor cleans up the pid file
     done
 }
 
