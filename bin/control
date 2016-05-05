@@ -38,6 +38,7 @@ function stop(){
 
     for server_pid in $(find "$OPENSHIFT_DATA_DIR" -name "server*.pid" -type f)
     do
+	log "Killing $server_pid $(head -n 1 '$server_pid')"
         head -n 1 "$server_pid" | xargs kill
         rm "$server_pid"
     done
