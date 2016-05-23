@@ -6,15 +6,31 @@ source "$OPENSHIFT_HOMEDIR/openshift-nginx-multinode/bin/util"
 
 log "Starting install"
 
-function make_config(){
+function make_nginx_config(){
     cd "$OPENSHIFT_NGINX_DIR/conf/"
     rm nginx.conf
 
     ln -s "$OPENSHIFT_NGINJS_DIR/data/conf/nginx.conf"
 }
 
+function make_php_config(){
+    cd "$OPENSHIFT_PHP_DIR/usr/bin"
+
+    ln -s "$OPENSHIFT_NGINJS_DIR/data/conf/php.ini"
+
+    cd "$OPENSHIFT_PHP_DIR/etc"
+
+    ln -s "$OPENSHIFT_NGINJS_DIR/data/conf/php-fpm.conf"
+
+    cd "$OPENSHIFT_PHP_DIR/etc/php-fpm.d/"
+
+    ln -s "$OPENSHIFT_NGINJS_DIR/data/conf/www.conf"
+}
+
 function installAll(){
-    make_config
+    make_nginx_config
+
+    make_php_config
 } 
 
 installAll

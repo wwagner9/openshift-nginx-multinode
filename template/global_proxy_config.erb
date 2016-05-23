@@ -1,4 +1,3 @@
-
 # additional server configuration parameters here
 #
 # e.g. force https
@@ -13,11 +12,3 @@ if ( $http_x_forwarded_proto != "https" ) {
 }
 
 add_header Strict-Transport-Security "max-age=691200; includeSubDomains";
-
-location / {
-	 proxy_pass $scheme://<%= ENV['OPENSHIFT_NGINJS_IP'] %>:16000;
-	 proxy_set_header		Host $host;
-	 proxy_pass_request_headers 	on;	
-	 # root   html;
-	 # index  index.html index.htm;
-}

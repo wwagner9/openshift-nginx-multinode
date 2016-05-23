@@ -7,6 +7,6 @@ function log(){
 function install_node_app(){
     log "installing application"
 
-    cd ${OPENSHIFT_REPO_DIR}
+    cd ${OPENSHIFT_NODE_SERVER_DIR}
     "$OPENSHIFT_NPM_BIN" install --production
 }

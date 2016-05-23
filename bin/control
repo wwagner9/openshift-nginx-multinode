@@ -8,7 +8,7 @@ function nohup_starter(){
 
     log "Starting $1 with id $2"
 
-    nohup "$OPENSHIFT_NODE_BIN" "$OPENSHIFT_SUPERVISOR_BIN" -w "$OPENSHIFT_REPO_DIR" -x "$OPENSHIFT_NODE_BIN" -pid "$OPENSHIFT_DATA_DIR/server$2.pid" "$OPENSHIFT_REPO_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs$2.log" 2>&1 &
+    nohup "$OPENSHIFT_NODE_BIN" "$OPENSHIFT_SUPERVISOR_BIN" -w "$OPENSHIFT_NODE_SERVER_DIR" -x "$OPENSHIFT_NODE_BIN" -pid "$OPENSHIFT_DATA_DIR/server$2.pid" "$OPENSHIFT_NODE_SERVER_DIR/$1" > "$OPENSHIFT_LOG_DIR/nodejs$2.log" 2>&1 &
 
 }
 
@@ -16,13 +16,13 @@ function build(){
     install_node_app
 }
 
-function start(){
-    log "Starting"
+function start_node(){
+    log "Starting node"
 
     nohup "$OPENSHIFT_NGINX_DIR/sbin/nginx" > "$OPENSHIFT_LOG_DIR/nohup_nginx.out" 2>&1 &
     
     i=0
-    server_registry="$OPENSHIFT_REPO_DIR/server_registry"
+    server_registry="$OPENSHIFT_NODE_SERVER_DIR/server_registry"
     while IFS= read -r server
     do
 
@@ -31,8 +31,20 @@ function start(){
     done < "$server_registry"
 }
 
-function stop(){
-    log "stopping"
+function start_php(){
+    log "Starting php"
+
+    "$OPENSHIFT_PHP_DIR"/usr/sbin/php-fpm -c ../bin/php.ini -y ../../etc/php-fpm.conf
+}
+
+function start(){
+    start_node
+
+    start_php
+}
+
+function stop_node(){
+    log "Stopping node"
     
     "$OPENSHIFT_NGINX_DIR/sbin/nginx" -s stop
 
@@ -43,6 +55,18 @@ function stop(){
         kill "$server_pid"
 	# looks like supervisor cleans up the pid file
     done
+}
+
+function stop_php(){
+    log "Stopping php"
+    
+    kill $(cat "$OPENSHIFT_PHP_DIR"/var/run/php-fpm/php-fpm.pid)
+}
+
+function stop(){
+    stop_node
+
+    stop_php
 }
 
 function restart(){

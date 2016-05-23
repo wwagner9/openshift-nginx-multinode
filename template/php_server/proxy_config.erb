@@ -1,0 +1,17 @@
+location ~ [^/]\.php(/|$) {
+
+	 try_files $uri =404;
+
+	 fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+	 
+	 if (!-f <%= ENV['OPENSHIFT_PHP_SERVER_DIR'] %>/$fastcgi_script_name) {
+	    return 404;
+	 }
+
+	 include fastcgi_params;
+
+	 fastcgi_pass unix:/var/run/php5-fpm.sock;
+	 fastcgi_index <%= ENV['OPENSHIFT_PHP_SERVER_DIR'] %>/index.php;
+	 fastcgi_param SCRIPT_FILENAME <%= ENV['OPENSHIFT_PHP_SERVER_DIR'] %>/$document_root$fastcgi_script_name;
+	 fastcgi_pass php;
+}
