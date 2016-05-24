@@ -1,7 +1,7 @@
 Name: openshift-nginx-multinode
 Cartridge-Short-Name: NGINJS
-Display-Name: NGINX/ multi Node Cartridge 0.1
-Description: NGINX/ multi Node
+Display-Name: NGINX/ multi Node / PHP Cartridge 0.1
+Description: NGINX/ multi Node / PHP
 Version: '0.1'
 License: "None"
 Vendor: Wolfgang Wagner
@@ -15,6 +15,7 @@ Provides:
 - nginx-1.9
 - nginx
 - node
+- php
 Publishes:
 Subscribes:
   set-env:
