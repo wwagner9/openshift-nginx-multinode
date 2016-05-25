@@ -22,14 +22,20 @@ function install_pcre(){
     rm "$PCRE_ARC"
 }
 
+function download_install_rpm(){
+    wget -O - -o /dev/null "$1" | rpm2cpio - | cpio -idmv
+}
+
 function install_php(){
     mkdir -p "$OPENSHIFT_PHP_DIR"
 
     cd "$OPENSHIFT_PHP_DIR"
 
-    for pkg in cli gd pdo pdo-dblib process fpm fpm-nginx mysqlnd soap xml pgsql bcmath tidy imap pecl-imagick mcrypt mbstring common
+    download_install_rpm "https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/php70u-fpm-nginx-7.0.6-1.ius.el6.noarch.rpm"
+
+    for pkg in cli gd pdo pdo-dblib process fpm mysqlnd soap xml pgsql bcmath tidy imap pecl-imagick mcrypt mbstring common
     do
-	 wget -O - -o /dev/null "https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/php70u-$pkg-7.0.6-1.ius.el6.x86_64.rpm" | rpm2cpio - | cpio -idmv
+	download_install_rpm "https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/php70u-$pkg-7.0.6-1.ius.el6.x86_64.rpm"
     done
 }
 
