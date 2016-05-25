@@ -31,12 +31,13 @@ function install_php(){
 
     cd "$OPENSHIFT_PHP_DIR"
 
-    download_install_rpm "https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/php70u-fpm-nginx-7.0.6-1.ius.el6.noarch.rpm"
-
-    for pkg in cli gd pdo pdo-dblib process fpm mysqlnd soap xml pgsql bcmath tidy imap pecl-imagick mcrypt mbstring common
+    for pkg in cli gd pdo pdo-dblib process fpm mysqlnd soap xml pgsql bcmath tidy imap mcrypt mbstring common
     do
 	download_install_rpm "https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/php70u-$pkg-7.0.6-1.ius.el6.x86_64.rpm"
     done
+    
+    download_install_rpm "https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/php70u-fpm-nginx-7.0.6-1.ius.el6.noarch.rpm"
+    download_install_rpm "https://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/php70u-pecl-imagick-3.4.1-1.ius.el6.x86_64.rpm"
 }
 
 function install_nginx(){
