@@ -28,9 +28,9 @@ function make_php_config(){
 }
 
 function installAll(){
-    make_nginx_config
+    #make_nginx_config
 
-    make_php_config
+    #make_php_config
 } 
 
 installAll
