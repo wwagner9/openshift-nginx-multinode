@@ -93,9 +93,9 @@ function install_supervisor(){
 
 
 function setupAll(){
-    install_nginx
+    #install_nginx
 
-    install_node
+    #install_node
 
     #install_supervisor
 
