@@ -13,6 +13,8 @@ NODE_URL="http://nodejs.org/dist/$NODE_VERSION/$NODE_GZ_FILE"
 
 
 function install_pcre(){
+    echo "Installing pcre"
+
     cd "$OPENSHIFT_TMP_DIR"
 
     wget "$PCRE_URL"
@@ -27,6 +29,7 @@ function download_install_rpm(){
 }
 
 function install_php(){
+    echo "Installing php"
     mkdir -p "$OPENSHIFT_PHP_DIR"
 
     cd "$OPENSHIFT_PHP_DIR"
@@ -41,6 +44,7 @@ function install_php(){
 }
 
 function install_nginx(){
+    echo "Installing nginx"
 
     mkdir -p "$OPENSHIFT_NGINX_DIR"
 
@@ -70,6 +74,8 @@ function install_nginx(){
 
 function install_node(){
 
+    echo "Installing node"
+
     mkdir -p "$OPENSHIFT_NODE_LOCATION"
 
     cd "$OPENSHIFT_NODE_LOCATION"
@@ -84,6 +90,8 @@ function install_node(){
 }
 
 function install_supervisor(){
+    echo "Installing supervisor"
+
     mkdir -p "$OPENSHIFT_SUPERVISOR_LOCATION"
 
     cd "$OPENSHIFT_SUPERVISOR_LOCATION"
@@ -93,11 +101,11 @@ function install_supervisor(){
 
 
 function setupAll(){
-    install_nginx
+    #install_nginx
 
-    install_node
+    #install_node
 
-    install_supervisor
+    #install_supervisor
 
     #install_php
 }
