@@ -101,6 +101,8 @@ function install_supervisor(){
 
 
 function setupAll(){
+    echo "Running setup"
+
     #install_nginx
 
     #install_node
